@@ -1,0 +1,29 @@
+{
+  "name": "DashTesting",
+  "version": "1.0.0",
+  "main": "server/index.js",
+  "description": "Testing Dash.",
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "dependencies": {
+    "body-parser": "^1.14.1",
+    "express": "^4.13.1",
+    "nodemon": "^1.3.7"
+  },
+  "devDependencies": {
+    "chai": "^3.4.0",
+    "mocha": "^2.3.3",
+    "nodemon": "^1.3.7"
+  },
+  "author": "John DeBlanc",
+  "license": "MIT",
+  "scripts": {
+    "start": "./node_modules/.bin/nodemon server/index.js --ignore client/ --ignore node_modules/",
+    "test": "./test/run.sh"
+  },
+  "bugs": {
+    "url": "https://github.com/jd009/dashjs-testing/issues"
+  },
+  "homepage": "https://github.com/jd009/dashjs-testing"
+}
