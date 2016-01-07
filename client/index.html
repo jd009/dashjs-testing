@@ -3,13 +3,17 @@
   <head>
     <title>Dashjs testing</title>
     <link rel="stylesheet" type="text/css" href="styles/style.css">
+    <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
     <script src="http://cdn.dashjs.org/latest/dash.all.js"></script>
+    <script src="js/app.js"></script>
   </head>
-  <body onLoad="Dash.createAll()">
+  <body>
     <div>
       <video class="dashjs-player" autoplay muted preload="none" controls="true">
-        <source src="http://dash.edgesuite.net/dash264/TestCases/1c/qualcomm/2/MultiRate.mpd" type="application/dash+xml"/>
       </video>
+      <div>
+        <span id="stats"/>
+      </div>
     </div>
   </body>
   <footer>
