@@ -5,7 +5,7 @@ $(document).ready(function(){
     var context = new Dash.di.DashContext();
     player = MediaPlayer(context);
     player.startup();
-    player.attachView(document.querySelector(".dashjs-player"));
+    player.attachView($(".dashjs-player")[0]);
     player.setAutoPlay(true);
     player.attachSource(url);
     setInterval(updateStats, 500);
