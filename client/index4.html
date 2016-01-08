@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <title>Auto-player instantiation example, showing how to obtain a reference to the MediaPlayer</title>
+    <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+<!--     // <script src="http://cdn.dashjs.org/latest/dash.all.js"></script> -->
+    <script src="dash.debug.js"></script>
+    <!--dash.all.min.js should be used in production over dash.debug.js. dash.debug.js is not compressed or obfuscated and the file size is much larger compared with dash.all.js-->
+    <!--<script src="../../dist/dash.all.min.js"></script>-->
+
+    <script>
+        var player;
+        function init()
+        {
+          var url = "http://dash.edgesuite.net/akamai/test/caption_test/ElephantsDream/elephants_dream_480p_heaac5_1.mpd";
+            var context = new Dash.di.DashContext();
+            player = MediaPlayer(context);
+            player.startup();
+            player.attachView(document.querySelector(".dashjs-player"));
+            player.setAutoPlay(true);
+            player.attachSource(url);
+            setInterval(updateStats,500)
+        }
+        function updateStats()
+        {
+            var metrics = player.getMetricsFor('video');
+            var metricsExt = player.getMetricsExt();
+            var bufferLevel = metricsExt.getCurrentBufferLevel(metrics);
+            document.querySelector("#stats").innerHTML = "Buffer level " + bufferLevel.level.toPrecision(3) + "s";
+        }
+    </script>
+    <style>
+        video {
+            width: 640px;
+            height: 360px;
+        }
+    </style>
+
+    <body onload="init()">
+        <div>
+            <video class="dashjs-player" autoplay controls>
+<!--                 <source src="http://dash.edgesuite.net/envivio/Envivio-dash2/manifest.mpd" type="application/dash+xml"/> -->
+            </video>
+        </div>
+        <div>
+            <span id="stats"/>
+        </div>
+
+    </body>
+</html>
