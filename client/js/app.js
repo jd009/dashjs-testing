@@ -31,10 +31,17 @@ $(document).ready(function(){
       interval = currentHttpRequest.interval;
     }
     $('#currentUrl').html("Current Http Request URL: " + currentUrl);
-    $('#currentBytes').html("Current Http Request Bytes: " + bytes);
+    $('#currentBytes').html("Current Http Request Bytes: " + bytes + " Kilobytes: " + (bytes / 1000).toFixed(1));
     $('#currentMediaDuration').html("Current Http Request Media Duration: " + mediaDuration);
     $('#currentLatency').html("Current Http Request Latency: " + latency);
     $('#currentInterval').html("Current Http Request Interval: " + interval);
+
+    //https://github.com/Dash-Industry-Forum/dash.js/blob/development/samples/chromecast/receiver/js/main.js
+    // var repSwitch = metricsExt.getCurrentRepresentationSwitch(metrics);
+    // if (repSwitch !== null) {
+    //   var bandwidthValue = metricsExt.getBandwidthForRepresentation(repSwitch.to);
+    //   $('#currentVideoBitrate').html("Current Video Bitrate: " + bandwidthValue);
+    // }
 
   }
 
